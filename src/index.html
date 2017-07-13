@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CID Easy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://pingendo.github.io/templates/blank/theme.css" type="text/css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+
+<body style="background: rgba(192, 192, 192, 0.05);">
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs"  id="main-nav">
+            <li class="nav-item"  id='tab1'>
+              <a href="#" class="nav-link active"><i class="fa fa-address-card"></i>&nbsp;Person Profile</a>
+            </li>
+            <li class="nav-item"  id='tab2'>
+              <a class="nav-link" href="#">Medical History</a>
+            </li>
+            <li class="nav-item"  id='tab3'>
+              <a href="#" class="nav-link">Guide &amp; Plan</a>
+            </li>
+            <li class="nav-item"  id='tab4'>
+              <a href="#" class="nav-link">Actions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="app-root-tab"></diV>
+
+</body>
+
+<script>
+  require('./app.js');
+  require('./cidreader.js');
+</script>
+<!--<script src="./control.js"></script>-->
+
+</html>
+
+<style>
+  #app-root-tab{
+    margin-top: 50px;
+  }
+  #main-nav{
+    position: fixed;
+    width: 90%;
+    z-index: 1000000;
+    background: white;
+    top: 0px;
+    padding-top: 10px;
+  }
+</style>
+
+<style>
+    #head-person{
+    font-size: 19px;
+    background: #005fab;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    width:200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    }
+    #head-second{
+        font-size:14px;
+        background: #c0c0c0;
+        padding: 10px;
+        text-align: right;
+        padding-right:15px;
+        font-weight: bold;
+        /* color: #fff; */
+    }
+.table th, .table td {
+    padding: 0.40rem;
+    vertical-align: top;
+    border-top: 4px solid #ffffff;
+}
+span{
+    width:300px;
+}
+a {
+    color: #005fab;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+input[type="radio"] {
+    cursor: pointer;
+    /* -webkit-appearance: none; */
+    appearance: none;
+    background: #34495E;
+    border-radius: 1px;
+    box-sizing: border-box;
+    position: relative;
+    box-sizing: content-box;
+    width: 24px;
+    height: 20px;
+    border-width: 0;
+    transition: all 0.3s linear;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+}
+
+#tb1{
+    border: 1px solid silver;
+    padding: 6px;
+    margin: 6px;
+    position: absolute;
+    left: 220px;
+    top: 48px;
+    width: 63%;
+}
+#tb2{
+    border: 1px solid silver;
+    padding: 6px;
+    margin: 6px;
+    position: absolute;
+    left: 220px;
+    top: 93px;
+    width: 63%;
+}
+#tb3{
+    border: 1px solid silver;
+    padding: 6px;
+    margin: 6px;
+    position: absolute;
+    left: 220px;
+    top: 136px;
+    width: 63%;
+}
+#tb4{
+    border: 1px solid silver;
+    padding: 6px;
+    margin: 6px;
+    position: absolute;
+    left: 220px;
+    top: 180px;
+    width: 63%;
+}
+#pin{
+    border: 1px solid silver;
+    padding: 3px;
+    margin: 6px;
+    position: absolute;
+    left: 220px;
+    top: 119px;
+    width: 20%;
+    font-size: 20px;
+    text-align: center;
+} 
+ </style>
+
