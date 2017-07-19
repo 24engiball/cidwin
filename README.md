@@ -1,14 +1,15 @@
 # cidwin
 ### Require Package
-1 การติดตั้งสำหรับ windows ให้เปิด cmd โหมด admin 
+1 ติดตั้ง NodeJS https://nodejs.org/en/ vesion > 8.14
+2 การติดตั้งสำหรับ windows ให้เปิด cmd โหมด admin 
 ```
 npm install --global --production windows-build-tools
 ``` 
-2 electron-rebuild package.
+3 electron-rebuild package.
 ```
 npm install -g electron-rebuild
 ``` 
-3 electron-prebuilt package.
+4 electron-prebuilt package.
 ```
 npm install -g electron-prebuilt
 ``` 
