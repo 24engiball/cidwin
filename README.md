@@ -1,5 +1,7 @@
 # cidwin
 ### Require Package
+0 ติดตั้ง python 2.7 และ set path
+
 1 ติดตั้ง NodeJS https://nodejs.org/en/ vesion > 8.14
 
 2 การติดตั้งสำหรับ windows ให้เปิด cmd โหมด admin 
@@ -21,6 +23,7 @@ from windows-build-tools  | https://github.com/felixrieseberg/windows-build-tool
 ### การติดตั้ง และ เริ่ม้นใช้งาน
  
 ```
+0 git clone https://github.com/24engiball/cidwin.git && cd cidwin
 1 npm install
 2 electron-rebuild
 3 npm start
