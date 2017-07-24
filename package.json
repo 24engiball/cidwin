@@ -26,14 +26,12 @@
     "md5": "^2.2.1",
     "opn": "^5.1.0",
     "smartcard": "^1.0.20"
-
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "electron": "^1.6.11",
     "electron-builder": "^19.16.0",
     "md5": "^2.2.1"
-
   },
   "build": {
     "appId": "com.engiball.cideasy",

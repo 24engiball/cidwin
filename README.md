@@ -14,7 +14,7 @@ npm install -g electron-rebuild
 ``` 
 4 electron-prebuilt package.
 ```
-npm install -g electron-prebuilt
+npm install -g electron
 ``` 
  
 :bulb: [Windows Vista / 7 only] requires [.NET Framework 4.5.1](http://www.microsoft.com/en-us/download/details.aspx?id=40773)

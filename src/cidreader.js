@@ -23,7 +23,13 @@ var pathName = __dirname;
 var dirAsset = pathName + '/assets';
 const opn = require('opn');
 
+//image encode base 64
+var encodeData = [];
+ 
+var api = require("./controllers/api.js");
+ 
 var dir = dirAsset + '/tmp'; //'./src/assets/tmp';
+
 /******* Tab ******* */
 Showtab("./views/person-profile.html");
 $("#tab1").click(function () {
@@ -61,8 +67,8 @@ function Showtab(url = "", cTab = 0) {
             if (true) {
                 // console.log(data);
                 $("#app-root-tab").html(data);
-                if(cid!='')
-                 showImage('out.jpg');
+                if (cid != '')
+                    showImage('out.jpg');
                 $('#fullname').html(fullname_th);
                 $("#address").html(address_full);
                 $("#birthday").html(birthday_full);
@@ -70,7 +76,7 @@ function Showtab(url = "", cTab = 0) {
             }
             if (cTab == 2) {
                 $('#iframe').attr('src', 'https://backend.thaicarecloud.org/ckd/emr/index?ptlink=' + ptlink);
-                   $('#bBrowser').attr('data',ptlink);
+                $('#bBrowser').attr('data', ptlink);
 
 
             }
@@ -102,6 +108,7 @@ function showCid(cid) {
 
         }
     }
+    
     $("#cid").html(out);
 }
 function showImage(mImgName = "") {
@@ -165,6 +172,10 @@ function showAddress(address = "") {
 
     address_full = address;//เก็บค่า address
     $("#address").html(address_full);
+
+    setTimeout(function(){
+        api.save();
+    });
 }
 
 
@@ -189,7 +200,7 @@ devices.on('device-activated', event => {
         //console.log(`Card '${card.getAtr()}' inserted into '${event.device}'`);
 
         card.on('command-issued', event => {
-             console.log(`Command '${event.command}' issued to '${event.card}' `);
+            console.log(`Command '${event.command}' issued to '${event.card}' `);
         });
 
         card.on('response-received', event => {
@@ -266,20 +277,20 @@ function readData(card) {
 
                     response = response.slice(0, -2);
 
-                     cid = response.toString(); //cid
-                     if(cid==''){
+                    cid = response.toString(); //cid
+                    if (cid == '') {
                         readData(card)
-                     }else{
-                    showCid(cid);
-                    console.log(`Response readCid ${cid } : ${response }`);
-                    ptlink = md5(cid);
-                 
-                    console.log(`Response ptlink ${ptlink}`);
+                    } else {
+                        showCid(cid);
+                        console.log(`Response readCid ${cid} : ${response}`);
+                        ptlink = md5(cid);
 
-                    readFullname(card);
-                     }
-                   // cid = cidRes;
-               
+                        console.log(`Response ptlink ${ptlink}`);
+
+                        readFullname(card);
+                    }
+                    // cid = cidRes;
+
                     //  readFullname(card);
                 }).catch((error) => {
                     console.error(error);
@@ -334,12 +345,12 @@ function readAddress(card) {
                 .issueCommand((new CommandApdu({ bytes: [0x00, 0xc0, 0x00, 0x00, 0x64] })))
                 .then((response) => {
                     var buffer = legacy.decode(response, "tis620");
-                    if(buffer==''){
-                    readAddress(card)
-                    }else{
+                    if (buffer == '') {
+                        readAddress(card)
+                    } else {
 
-                    showAddress(buffer);
-                    readImageOneLine(card);
+                        showAddress(buffer);
+                        readImageOneLine(card);
 
 
                     }
@@ -387,6 +398,7 @@ function readImageOneLine(card) {
                     imgTemp = imgTemp + response.toString('base64').replace('kAA=', '');//.slice(0,-2).toString('base64');
                     checkMod++;
                     //  }
+
                     if (cmdIndex < 20) {
                         if (cmdIndex == 0) {
                             if (!fs.existsSync(dirAsset)) {
@@ -398,11 +410,11 @@ function readImageOneLine(card) {
 
 
                         }
-                         if (cmdIndex >2) {
-                                 var tImg = 'data:image/jpeg;base64,' + imgTemp;
-                        $('#pImg').attr('src', tImg);
-                         }
-                    
+                        if (cmdIndex > 2) {
+                            var tImg = 'data:image/jpeg;base64,' + imgTemp;
+                            $('#pImg').attr('src', tImg);
+                        }
+
 
 
                         ++cmdIndex;
